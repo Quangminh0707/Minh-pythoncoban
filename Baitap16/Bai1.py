@@ -5,4 +5,4 @@ elif 7 <= luong <= 15:
     thue = luong * 20/100
 else:
     thue = luong * 10/100
-print("Số tiền thuế thu nhập mà bạn phải đống là : ",{thue}," triệu đồng" )
+print("Số tiền thuế thu nhập mà bạn phải đống là : ",thue," triệu đồng" )

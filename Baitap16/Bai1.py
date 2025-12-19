@@ -6,3 +6,4 @@ elif 7 <= luong <= 15:
 else:
     thue = luong * 10/100
 print("Số tiền thuế thu nhập mà bạn phải đống là : ",thue," triệu đồng" )
+#Baitap

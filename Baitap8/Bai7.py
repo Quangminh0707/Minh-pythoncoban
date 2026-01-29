@@ -1,54 +1,52 @@
 danh_sach_ban_be = []
 
 def menu():
-    print("-------Chương trình quản lý bạn bè trên facebook-------" )
-    print("Nhập phím 1 để hiển thị danh sách bạn bè")
-    print("Nhập phím 2 để thêm mới bạn bè")
-    print("Nhập phím 3 để xóa bạn bè")
-    print("Nhập phím 4 để sửa tên bạn bè")
-    print("Nhập phím 5 để thoát chương trình")
+    global danh_sach_ban_be 
+
+    print("\n-------Chương trình quản lý bạn bè trên facebook-------")
+    print("1. Hiển thị danh sách")
+    print("2. Thêm mới bạn bè")
+    print("3. Xóa bạn bè")
+    print("4. Sửa tên bạn bè")
+    print("5. Thoát")
     
     a = input("\nMời bạn nhập lựa chọn (1-5): ")
 
-
     if a == '1':
         print("\n--- DANH SÁCH BẠN BÈ ---")
-        if len(danh_sach_ban_be) == 0:
-            print("Danh sách trống.")
-        else:
-            for i in range(len(danh_sach_ban_be)):
-                print(str(i + 1) + ". " + danh_sach_ban_be[i])
-        menu() 
+        # Vòng lặp 2 chiều in trên cùng một hàng
+        for ban in danh_sach_ban_be:
+            for thong_tin in ban:
+                print(thong_tin, end=" | ") # end=" | " giúp các thông tin nằm cùng hàng và cách nhau bởi dấu gạch
+            print() # Lệnh print trống này để xuống dòng sau khi in xong 1 người
+        menu()
 
     elif a == '2':
-        ten_moi = input("Nhập tên bạn mới: ")
-        danh_sach_ban_be.append(ten_moi)
+        ten = input("Nhập tên: ")
+        ngay_sinh = input("Nhập ngày sinh: ")
+        dia_chi = input("Nhập địa chỉ: ")
+        sdt = input("Nhập số điện thoại: ")
+        danh_sach_ban_be.append([ten, ngay_sinh, dia_chi, sdt])
         menu()
 
     elif a == '3':
         ten_xoa = input("Nhập tên cần xóa: ")
-        if ten_xoa in danh_sach_ban_be:
-            danh_sach_ban_be.remove(ten_xoa)
-        else:
-            print("Không tìm thấy.")
+        danh_sach_ban_be = [b for b in danh_sach_ban_be if b[0] != ten_xoa]
         menu()
 
     elif a == '4':
         ten_cu = input("Nhập tên cũ: ")
-        if ten_cu in danh_sach_ban_be:
-            vi_tri = danh_sach_ban_be.index(ten_cu)
-            danh_sach_ban_be[vi_tri] = input("Nhập tên mới: ")
-        else:
-            print("Không tồn tại.")
+        for ban in danh_sach_ban_be:
+            if ban[0] == ten_cu:
+                ban[0] = input("Nhập tên mới: ")
         menu()
 
     elif a == '5':
-        print("Đã thoát chương trình.")
-        return 
+        print("Đã thoát.")
+        return
 
     else:
-        print("Lựa chọn sai, mời nhập lại.")
+        print("Nhập sai!")
         menu()
-
 
 menu()

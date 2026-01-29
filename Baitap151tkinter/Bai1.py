@@ -1,0 +1,10 @@
+import tkinter as tk
+window = tk.Tk()
+window.title("First_Progam")
+window.geometry("450x300")
+label1 = tk.Label(window, text = "Username: ").pack()
+entry_username = tk.Entry(window,width=35).pack()
+label2 = tk.Label(window, text = "Password: ").pack()
+entry_password = tk.Entry(window,width=35).pack()
+btn_login = tk.Button(window, text="Login").pack()
+window.mainloop()

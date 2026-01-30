@@ -1,0 +1,10 @@
+import math
+
+def area_circle(r):
+    return math.pi * r**2
+
+def area_rectangle(w, h):
+    return w * h
+
+def area_triangle(a, h):
+    return 0.5 * a * h

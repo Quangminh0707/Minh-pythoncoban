@@ -30,7 +30,7 @@ while True:
         try:
             ma = input("Nhập mã: ")
             ten = input("Nhập tên: ")
-            gia = float(input("Nhập giá: ")) # Kiểm tra lỗi nhập số
+            gia = float(input("Nhập giá: ")) 
             danh_sach_sp.append([ma, ten, str(gia)])
             print("Đã thêm!")
         except ValueError:
